@@ -64,13 +64,36 @@ if uploaded_files:
     query = st.text_input(label='Ask a question:',label_visibility="collapsed")
 
     retriever = kbase.as_retriever(search_type="similarity", search_kwargs={"k":4})
-    rqa = RetrievalQA.from_chain_type(llm=ChatOpenAI(model_name="gpt-4",temperature=0),
-                                chain_type="stuff",
-                                retriever=retriever,
-                                chain_type_kwargs={
-                                "prompt": PromptTemplate(template=prompt_template,input_variables=["context", "question"])},
-                                return_source_documents=True)
+
+    rqa1 = RetrievalQA.from_chain_type(llm=ChatOpenAI(model_name="gpt-4",temperature=0),
+                                    chain_type="stuff",
+                                    retriever=retriever,
+                                    chain_type_kwargs={
+                                    "prompt": PromptTemplate(template=prompt_template,input_variables=["context", "question"])},
+                                    return_source_documents=True)
+
+    rqa2 = RetrievalQA.from_chain_type(llm=ChatOpenAI(model_name="gpt-3.5-turbo",temperature=0),
+                                    chain_type="stuff",
+                                    retriever=retriever,
+                                    chain_type_kwargs={
+                                    "prompt": PromptTemplate(template=prompt_template,input_variables=["context", "question"])},
+                                    return_source_documents=True)    
     
-    if st.button("Search Document"):
-        st.write(rqa(query)['result'])
+    col1, col2 = st.columns(2,gap="small")
+    with st.form("Models"):
+        with col1:
+            model1 = st.checkbox("GPT4")
+        with col2:
+            model2 = st.checkbox("GPT3.5-turbo")
+        submit_button = st.form_submit_button("Search Document",use_container_width=True)
+
+    if submit_button: 
+        if model1:
+            result1=rqa1(query)['result']
+            st.write('Result generated using GPT4 model')
+            st.write(result1)
+        if model2:
+            result2=rqa2(query)['result']
+            st.write('Result generated using GPT3.5-turbo model')
+            st.write(result2)
         
