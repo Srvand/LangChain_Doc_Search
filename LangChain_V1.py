@@ -9,6 +9,7 @@ from langchain import PromptTemplate, HuggingFaceHub, LLMChain
 from PyPDF2 import PdfReader
 from langchain.chains import RetrievalQA
 import os
+from langchain.chat_models import ChatOpenAI
 
 
 os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
