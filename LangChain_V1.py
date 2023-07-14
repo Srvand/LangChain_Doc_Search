@@ -63,7 +63,7 @@ if uploaded_files:
     query = st.text_input(label='Ask a question:',label_visibility="collapsed")
 
     retriever = kbase.as_retriever(search_type="similarity", search_kwargs={"k":4})
-    rqa = RetrievalQA.from_chain_type(llm=OpenAI(model_name="gpt-4",temperature=0),
+    rqa = RetrievalQA.from_chain_type(llm=ChatOpenAI(model_name="gpt-4",temperature=0),
                                 chain_type="stuff",
                                 retriever=retriever,
                                 chain_type_kwargs={
