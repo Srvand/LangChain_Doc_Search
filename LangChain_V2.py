@@ -128,6 +128,7 @@ if uploaded_files:
 
         if model1:
             result1=rqa1(query)
+            st.header('Results generated using GPT4 model:')
             st.write(result1['result'])
             if ((result1['result'])!='No relevant context in documents.'):
                 file_name=get_file_name_with_extension(result1['source_documents'][0].metadata['source'])
@@ -139,6 +140,7 @@ if uploaded_files:
 
         if model2:
             result2=rqa2(query)
+            st.header('Results generated using GPT3.5 model:')
             st.write(result2['result'])
             if ((result2['result'])!='No relevant context in documents.'):
                 file_name=get_file_name_with_extension(result2['source_documents'][0].metadata['source'])
