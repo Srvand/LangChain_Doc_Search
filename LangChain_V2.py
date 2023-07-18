@@ -21,7 +21,7 @@ from langchain.chains.combine_documents.stuff import StuffDocumentsChain
 os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 
     # # print('Hello')
-st.set_page_config(page_title="Search PDF for answer")
+st.set_page_config(page_title="Search PDF for answer",layout="wide")
 st.write("""
     <style>
         footer {visibility: hidden;}
