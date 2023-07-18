@@ -22,7 +22,14 @@ os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 
     # # print('Hello')
 st.set_page_config(page_title="Search PDF for answer")
-
+st.write("""
+    <style>
+        footer {visibility: hidden;}
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 def add_document(file):  
     if file.type == 'application/pdf':
