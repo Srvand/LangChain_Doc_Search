@@ -1,6 +1,4 @@
-from dotenv import load_dotenv
 import streamlit as st
-# from PyPDF2 import PdfReader
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import CharacterTextSplitter,RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS,Chroma
@@ -14,7 +12,6 @@ from langchain import PromptTemplate, HuggingFaceHub, LLMChain
 import os
 import tempfile
 from langchain.llms import OpenAI
-from PyPDF2 import PdfReader
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import PyPDFLoader
