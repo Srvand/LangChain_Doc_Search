@@ -130,7 +130,6 @@ if uploaded_files:
             result1=rqa1(query)
             st.write(result1['result'])
             if ((result1['result'])!='No relevant context in documents.'):
-                st.write(result1['source_documents'])
                 file_name=get_file_name_with_extension(result1['source_documents'][0].metadata['source'])
                 st.write('Source: ',file_name)
                 page_num=result1['source_documents'][0].metadata['page']
@@ -142,7 +141,6 @@ if uploaded_files:
             result2=rqa2(query)
             st.write(result2['result'])
             if ((result2['result'])!='No relevant context in documents.'):
-                st.write(result2['source_documents'])
                 file_name=get_file_name_with_extension(result2['source_documents'][0].metadata['source'])
                 st.write('Source: ',file_name)
                 page_num=result2['source_documents'][0].metadata['page']
