@@ -12,8 +12,6 @@ import os
 from langchain.chat_models import ChatOpenAI
 import tempfile
 from langchain.llms import OpenAI
-import pdfplumber
-from PyPDF2 import PdfReader
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import PyPDFLoader
@@ -110,6 +108,7 @@ if uploaded_files:
     if submit_button: 
         if model1:
             result1=rqa1(query)
+            st.write('Results generated using GPT4 model:')
             st.write(result1['result'])
             if ((result1['result'])!='No relevant context in documents.'):
                 st.write(result1['source_documents'])
@@ -122,6 +121,7 @@ if uploaded_files:
 
         if model2:
             result2=rqa2(query)
+            st.write('Results generated using GPT3.5 turbo model:')
             st.write(result2['result'])
             if ((result2['result'])!='No relevant context in documents.'):
                 st.write(result2['source_documents'])
