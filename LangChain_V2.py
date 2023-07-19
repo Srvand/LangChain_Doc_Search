@@ -149,7 +149,6 @@ if uploaded_files:
 
         if model2:
             result2=rqa2(query)
-            st.header('Results generated using GPT3.5 model:')
             st.write(f"<p style='font-size: 16px; color: #00008B;font-family: Arial;'>Results generated using GPT3.5 model:</p>",unsafe_allow_html=True)
             st.write(result2['result'])
             if ((result2['result'])!='No relevant context in documents'):
