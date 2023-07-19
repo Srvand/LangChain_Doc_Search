@@ -137,7 +137,7 @@ if uploaded_files:
             result1=rqa1(query)
             st.write(f"<p style='font-size: 16px; color: #00008B;font-family: Arial;'>Results generated using GPT4 model:</p>",unsafe_allow_html=True)
             st.write(result1['result'])
-            if ((result1['result'])!='No relevant context in documents.'):
+            if (result1['result']!='No relevant context in documents.' or result1['result']!='No relevant context in documents'):
                 file_name=get_file_name_with_extension(result1['source_documents'][0].metadata['source'])
                 # st.write('Source: ',file_name)
                 st.write(f"<p style='font-size: 16px; color: #00555e;font-family: Arial;'>Source: {file_name}</p>",unsafe_allow_html=True)
@@ -151,7 +151,7 @@ if uploaded_files:
             result2=rqa2(query)
             st.write(f"<p style='font-size: 16px; color: #00008B;font-family: Arial;'>Results generated using GPT3.5 model:</p>",unsafe_allow_html=True)
             st.write(result2['result'])
-            if ((result2['result'])!='No relevant context in documents.'):
+            if (result2['result']!='No relevant context in documents.' or result2['result']!='No relevant context in documents'):
                 file_name=get_file_name_with_extension(result2['source_documents'][0].metadata['source'])
                 # st.write('Source: ',file_name)
                 st.write(f"<p style='font-size: 16px; color: #00555e;font-family: Arial;'>Source: {file_name}</p>",unsafe_allow_html=True)
