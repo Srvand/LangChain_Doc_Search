@@ -149,7 +149,7 @@ if uploaded_files:
             result2=rqa2(query)
             st.header('Results generated using GPT3.5 model:')
             st.write(result2['result'])
-            if ((result2['result'])!='No relevant context in documents.'):
+            if ((result2['result'])!='No relevant context in documents'):
                 file_name=get_file_name_with_extension(result2['source_documents'][0].metadata['source'])
                 st.write('Source: ',file_name)
                 page_num=result2['source_documents'][0].metadata['page']
