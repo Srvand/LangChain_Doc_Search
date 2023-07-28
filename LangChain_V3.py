@@ -108,12 +108,9 @@ if uploaded_files:
                                     retriever=retriever,
                                     chain_type_kwargs={
                                     "prompt": PromptTemplate(template=prompt_template,input_variables=["context", "question"])},
-                                    return_source_documents=True)  
+                                    return_source_documents=True) 
 
-  
-    submit_button = st.form_submit_button("Search Document",use_container_width=True)
-
-    if submit_button: 
+    if st.button('Search Document'): 
         result=rqa(query)
         st.write(f"<p style='font-size: 16px; color: #00008B;font-family: Arial;'>Results generated using GPT3.5 model:</p>",unsafe_allow_html=True)
         st.write(result['result'])
